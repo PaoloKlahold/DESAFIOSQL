@@ -1,0 +1,11 @@
+USE treinamento
+
+SELECT P.NMPRODUCT, count(pr.CDPRODUCT) as 'Quantidade de vezes pedidos', sum(pr.QTAMOUNT) as 'Quantidade de Itens pedidos'
+		FROM REQUEST as r INNER JOIN PRODUCTREQUEST as pr on r.CDREQUEST = pr.CDREQUEST
+						  INNER JOIN PRODUCT as p on pr.CDPRODUCT = p.CDPRODUCT
+						  GROUP BY p.NMPRODUCT
+
+SELECT DISTINCT P.NMPRODUCT
+		FROM REQUEST as r INNER JOIN PRODUCTREQUEST as pr on r.CDREQUEST = pr.CDREQUEST
+						  INNER JOIN PRODUCT as p on pr.CDPRODUCT = p.CDPRODUCT
+
