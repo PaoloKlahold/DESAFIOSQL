@@ -1,0 +1,2 @@
+USE treinamento
+SELECT c.NMCUSTOMER FROM CUSTOMER as c where c.IDFONE LIKE '4%'
