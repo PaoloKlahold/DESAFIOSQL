@@ -1,0 +1,7 @@
+use treinamento
+
+DELETE FROM CUSTOMER WHERE CDCUSTOMER IN
+	(SELECT c.CDCUSTOMER
+		FROM CUSTOMER as c left join REQUEST as r ON c.CDCUSTOMER = r.CDCUSTOMER
+		group by c.CDCUSTOMER
+		having count(r.CDREQUEST) = 0)
